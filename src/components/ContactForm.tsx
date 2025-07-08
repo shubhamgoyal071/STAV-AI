@@ -32,16 +32,39 @@ const ContactForm: React.FC = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    setIsSubmitted(true);
-    setTimeout(() => setIsSubmitted(false), 3000);
+    const endpoint = "https://sheetdb.io/api/v1/vstilkmjtiuco";
+    const data = {
+      data: {
+        name: formData.name,
+        email: formData.email,
+        company: formData.company,
+        phone: formData.phone,
+        message: formData.message,
+        budget: formData.budget,
+        timeline: formData.timeline,
+      },
+    };
+    try {
+      await fetch(endpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      setIsSubmitted(true);
+      setTimeout(() => setIsSubmitted(false), 3000);
+    } catch (error) {
+      alert("There was an error submitting the form. Please try again.");
+    }
   };
 
   if (isSubmitted) {
     return (
-      <section className="py-24 bg-slate-950 relative overflow-hidden">
+      <section
+        className="py-24 bg-slate-950 relative overflow-hidden"
+        data-aos="fade-up"
+      >
         {/* Background Elements */}
         <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950"></div>
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-green-500/10 to-emerald-500/10 rounded-full blur-3xl animate-pulse"></div>
@@ -74,13 +97,20 @@ const ContactForm: React.FC = () => {
   }
 
   return (
-    <section className="py-24 bg-slate-950 relative overflow-hidden">
+    <section
+      className="py-24 bg-slate-950 relative overflow-hidden"
+      data-aos="fade-up"
+    >
       {/* Background Elements */}
       <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-blue-950 to-purple-950"></div>
       <div className="absolute top-0 left-1/4 w-[28rem] h-[28rem] bg-gradient-to-r from-cyan-400/10 via-blue-500/10 to-purple-500/10 rounded-full blur-3xl animate-float"></div>
       <div className="absolute bottom-0 right-1/4 w-[22rem] h-[22rem] bg-gradient-to-r from-purple-400/10 via-pink-500/10 to-cyan-400/10 rounded-full blur-3xl animate-float-delayed"></div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div
+        className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+        data-aos="fade-up"
+        data-aos-delay="100"
+      >
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Contact Info */}
           <div>

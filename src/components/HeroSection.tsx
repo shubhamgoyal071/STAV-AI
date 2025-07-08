@@ -12,7 +12,10 @@ import {
 
 const HeroSection: React.FC = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      data-aos="fade-up"
+    >
       {/* Animated Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-blue-950 to-purple-950">
         {/* Animated Grid */}
@@ -28,9 +31,17 @@ const HeroSection: React.FC = () => {
         <div className="absolute bottom-1/4 right-1/4 w-[22rem] h-[22rem] bg-gradient-to-r from-purple-400/20 via-pink-500/20 to-cyan-400/20 rounded-full blur-3xl animate-float-delayed"></div>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div
+        className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
+        data-aos="fade-up"
+        data-aos-delay="100"
+      >
         {/* Hero Content */}
-        <div className="max-w-5xl mx-auto">
+        <div
+          className="max-w-5xl mx-auto"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
           {/* Futuristic Badge */}
           <div className="inline-flex items-center space-x-3 bg-gradient-to-r from-cyan-500/20 via-blue-500/20 to-purple-500/20 backdrop-blur-xl border border-cyan-400/40 rounded-full px-8 py-4 mb-10 group shadow-lg hover:border-cyan-300/60 transition-all duration-500">
             <div className="relative">

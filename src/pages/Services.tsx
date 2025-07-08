@@ -171,13 +171,24 @@ const Services: React.FC = () => {
   return (
     <div className="pt-20 bg-slate-950">
       {/* Hero Section */}
-      <section className="py-24 bg-gradient-to-br from-slate-950 via-blue-950 to-purple-950 text-white relative overflow-hidden">
+      <section
+        className="py-24 bg-gradient-to-br from-slate-950 via-blue-950 to-purple-950 text-white relative overflow-hidden"
+        data-aos="fade-up"
+      >
         {/* Background Elements */}
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-full blur-3xl"></div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-5xl mx-auto text-center">
+        <div
+          className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          <div
+            className="max-w-5xl mx-auto text-center"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
             <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 backdrop-blur-xl border border-cyan-400/30 rounded-full px-6 py-3 mb-8">
               <Sparkles className="w-5 h-5 text-cyan-400 animate-pulse" />
               <span className="text-cyan-300 text-sm font-medium tracking-wide">
@@ -201,7 +212,11 @@ const Services: React.FC = () => {
       </section>
 
       {/* Detailed Services */}
-      <section className="py-24 bg-slate-950">
+      <section
+        className="py-24 bg-slate-950"
+        data-aos="fade-up"
+        data-aos-delay="100"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
@@ -218,6 +233,8 @@ const Services: React.FC = () => {
             {detailedServices.map((service, index) => (
               <div
                 key={index}
+                data-aos="fade-up"
+                data-aos-delay={String(200 + index * 100)}
                 className={`${
                   index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
                 } flex flex-col lg:flex items-center gap-16`}
@@ -248,6 +265,8 @@ const Services: React.FC = () => {
                       <div
                         key={featureIndex}
                         className="flex items-start space-x-3"
+                        data-aos="fade-right"
+                        data-aos-delay={String(300 + featureIndex * 50)}
                       >
                         <CheckCircle className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
                         <span className="text-slate-300">{feature}</span>
@@ -260,6 +279,8 @@ const Services: React.FC = () => {
                 <div className="flex-1">
                   <div
                     className={`bg-gradient-to-br ${service.bgColor} backdrop-blur-xl rounded-3xl p-10 border ${service.borderColor}`}
+                    data-aos="fade-left"
+                    data-aos-delay={String(400 + index * 100)}
                   >
                     <h4 className="text-xl font-semibold text-white mb-8">
                       Common Use Cases:
@@ -269,6 +290,8 @@ const Services: React.FC = () => {
                         <div
                           key={useCaseIndex}
                           className="flex items-start space-x-4"
+                          data-aos="zoom-in"
+                          data-aos-delay={String(500 + useCaseIndex * 50)}
                         >
                           <Zap
                             className={`w-5 h-5 mt-0.5 flex-shrink-0 text-cyan-400`}
@@ -286,7 +309,11 @@ const Services: React.FC = () => {
       </section>
 
       {/* Industries We Serve */}
-      <section className="py-24 bg-slate-900">
+      <section
+        className="py-24 bg-slate-900"
+        data-aos="fade-up"
+        data-aos-delay="200"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
@@ -303,6 +330,8 @@ const Services: React.FC = () => {
               <div
                 key={index}
                 className="group bg-gradient-to-br from-slate-800/50 to-blue-900/50 backdrop-blur-xl rounded-2xl p-8 text-center border border-cyan-400/20 hover:border-cyan-400/40 transition-all duration-500 transform hover:-translate-y-2"
+                data-aos="flip-left"
+                data-aos-delay={String(200 + index * 100)}
               >
                 <h3 className="font-semibold text-white group-hover:text-cyan-300 transition-colors duration-500">
                   {industry}
@@ -314,7 +343,11 @@ const Services: React.FC = () => {
       </section>
 
       {/* Process */}
-      <section className="py-24 bg-slate-950">
+      <section
+        className="py-24 bg-slate-950"
+        data-aos="fade-up"
+        data-aos-delay="300"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
@@ -357,7 +390,12 @@ const Services: React.FC = () => {
                 color: "from-orange-500 to-red-500",
               },
             ].map((step, index) => (
-              <div key={index} className="group text-center">
+              <div
+                key={index}
+                className="group text-center"
+                data-aos="fade-up"
+                data-aos-delay={String(200 + index * 100)}
+              >
                 <div
                   className={`relative w-20 h-20 bg-gradient-to-r ${step.color} rounded-full flex items-center justify-center text-white font-bold text-xl mx-auto mb-8 group-hover:scale-110 transition-transform duration-500`}
                 >
@@ -379,7 +417,11 @@ const Services: React.FC = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-r from-cyan-600/20 to-blue-600/20 backdrop-blur-xl text-white border-t border-cyan-400/20">
+      <section
+        className="py-24 bg-gradient-to-r from-cyan-600/20 to-blue-600/20 backdrop-blur-xl text-white border-t border-cyan-400/20"
+        data-aos="fade-up"
+        data-aos-delay="400"
+      >
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="flex items-center justify-center space-x-4 mb-8">
             <Cpu className="w-8 h-8 text-cyan-400 animate-spin-slow" />

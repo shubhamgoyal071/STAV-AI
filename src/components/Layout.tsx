@@ -19,8 +19,11 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [form, setForm] = useState({
     name: "",
     email: "",
+    company: "",
     phone: "",
     message: "",
+    budget: "",
+    timeline: "",
   });
   const [isSent, setIsSent] = useState(false);
   const location = useLocation();
@@ -55,10 +58,39 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleFormSubmit = (e: React.FormEvent) => {
+  const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSent(true);
-    setForm({ name: "", email: "", phone: "", message: "" });
+    const endpoint = "https://sheetdb.io/api/v1/vstilkmjtiuco";
+    const data = {
+      data: {
+        name: form.name,
+        email: form.email,
+        company: form.company,
+        phone: form.phone,
+        message: form.message,
+        budget: form.budget,
+        timeline: form.timeline,
+      },
+    };
+    try {
+      await fetch(endpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      setIsSent(true);
+      setForm({
+        name: "",
+        email: "",
+        company: "",
+        phone: "",
+        message: "",
+        budget: "",
+        timeline: "",
+      });
+    } catch (error) {
+      alert("There was an error submitting the form. Please try again.");
+    }
   };
 
   return (
@@ -263,7 +295,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       {/* Modal for Schedule a Call */}
       {isModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60">
-          <div className="bg-slate-900 rounded-2xl p-8 w-full max-w-md shadow-2xl relative">
+          <div className="bg-slate-900 rounded-2xl p-8 w-full max-w-md shadow-2xl relative max-h-[90vh] overflow-y-auto">
             <button
               onClick={() => setIsModalOpen(false)}
               className="absolute top-4 right-4 text-slate-400 hover:text-cyan-400 text-2xl"
@@ -314,6 +346,16 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                   />
                 </div>
                 <div>
+                  <label className="block text-slate-300 mb-2">Company</label>
+                  <input
+                    type="text"
+                    name="company"
+                    value={form.company}
+                    onChange={handleFormChange}
+                    className="w-full px-4 py-3 rounded-xl bg-slate-800 border border-slate-700 text-white"
+                  />
+                </div>
+                <div>
                   <label className="block text-slate-300 mb-2">Phone</label>
                   <input
                     type="tel"
@@ -323,6 +365,36 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                     required
                     className="w-full px-4 py-3 rounded-xl bg-slate-800 border border-slate-700 text-white"
                   />
+                </div>
+                <div>
+                  <label className="block text-slate-300 mb-2">Budget</label>
+                  <select
+                    name="budget"
+                    value={form.budget}
+                    onChange={handleFormChange}
+                    className="w-full px-4 py-3 rounded-xl bg-slate-800 border border-slate-700 text-white"
+                  >
+                    <option value="">Select budget range</option>
+                    <option value="15k-25k">₹15k - ₹25k</option>
+                    <option value="25k-50k">₹25k - ₹50k</option>
+                    <option value="50k-1L">₹50k - ₹1L</option>
+                    <option value="1L+">₹1L+</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-slate-300 mb-2">Timeline</label>
+                  <select
+                    name="timeline"
+                    value={form.timeline}
+                    onChange={handleFormChange}
+                    className="w-full px-4 py-3 rounded-xl bg-slate-800 border border-slate-700 text-white"
+                  >
+                    <option value="">Select timeline</option>
+                    <option value="asap">ASAP</option>
+                    <option value="1-3months">1-3 months</option>
+                    <option value="3-6months">3-6 months</option>
+                    <option value="6months+">6+ months</option>
+                  </select>
                 </div>
                 <div>
                   <label className="block text-slate-300 mb-2">Message</label>

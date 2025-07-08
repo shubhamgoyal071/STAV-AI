@@ -15,13 +15,24 @@ const About: React.FC = () => {
   return (
     <div className="pt-20 bg-slate-950">
       {/* Hero Section */}
-      <section className="py-24 bg-gradient-to-br from-slate-950 via-blue-950 to-purple-950 text-white relative overflow-hidden">
+      <section
+        className="py-24 bg-gradient-to-br from-slate-950 via-blue-950 to-purple-950 text-white relative overflow-hidden"
+        data-aos="fade-up"
+      >
         {/* Background Elements */}
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-full blur-3xl"></div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-5xl mx-auto text-center">
+        <div
+          className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          <div
+            className="max-w-5xl mx-auto text-center"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
             <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 backdrop-blur-xl border border-cyan-400/30 rounded-full px-6 py-3 mb-8">
               <Sparkles className="w-5 h-5 text-cyan-400 animate-pulse" />
               <span className="text-cyan-300 text-sm font-medium tracking-wide">
@@ -46,7 +57,11 @@ const About: React.FC = () => {
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-24 bg-slate-950">
+      <section
+        className="py-24 bg-slate-950"
+        data-aos="fade-up"
+        data-aos-delay="300"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -124,7 +139,11 @@ const About: React.FC = () => {
       </section>
 
       {/* Our Story */}
-      <section className="py-24 bg-slate-900">
+      <section
+        className="py-24 bg-slate-900"
+        data-aos="fade-up"
+        data-aos-delay="400"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-16">
@@ -162,7 +181,11 @@ const About: React.FC = () => {
       </section>
 
       {/* Values */}
-      <section className="py-24 bg-slate-950">
+      <section
+        className="py-24 bg-slate-950"
+        data-aos="fade-up"
+        data-aos-delay="500"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">

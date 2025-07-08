@@ -70,7 +70,10 @@ const WhyChooseUs: React.FC = () => {
   ];
 
   return (
-    <section className="py-24 bg-slate-900 relative overflow-hidden">
+    <section
+      className="py-24 bg-slate-900 relative overflow-hidden"
+      data-aos="fade-up"
+    >
       {/* Background Elements */}
       <div className="absolute inset-0 bg-gradient-to-b from-slate-900 via-slate-950 to-purple-950"></div>
       <div className="absolute top-1/4 left-0 w-[28rem] h-[28rem] bg-gradient-to-r from-cyan-400/10 via-blue-500/10 to-purple-500/10 rounded-full blur-3xl animate-float"></div>
@@ -78,7 +81,11 @@ const WhyChooseUs: React.FC = () => {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-20">
+        <div
+          className="text-center mb-20"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
           <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-cyan-500/20 via-blue-500/20 to-purple-500/20 backdrop-blur-xl border border-cyan-400/40 rounded-full px-8 py-4 mb-10 shadow-lg hover:border-cyan-300/60 transition-all duration-500">
             <Sparkles className="w-5 h-5 text-cyan-400 animate-pulse" />
             <span className="text-cyan-300 text-sm font-medium tracking-wide">
@@ -104,6 +111,8 @@ const WhyChooseUs: React.FC = () => {
           {advantages.map((advantage, index) => (
             <div
               key={index}
+              data-aos="flip-left"
+              data-aos-delay={String(200 + index * 100)}
               className={`group relative bg-gradient-to-br ${advantage.bgColor} backdrop-blur-xl rounded-2xl p-8 border ${advantage.borderColor} hover:border-opacity-80 transition-all duration-700 transform hover:-translate-y-3 hover:scale-110 shadow-xl hover:shadow-cyan-400/20`}
             >
               {/* Glow Effect */}
